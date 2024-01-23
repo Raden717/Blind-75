@@ -1,0 +1,48 @@
+Given a string s, find the length of the longest 
+substring without repeating characters.
+
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+Example 3:
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+ 
+
+Constraints:
+
+0 <= s.length <= 5 * 104
+s consists of English letters, digits, symbols and spaces.
+
+BRUTE FORCE:
+
+Check every single substring, check if it has duplicates, if it doesn't then we take the longest substring and return the length.
+
+More Optimal:
+
+Sliding Window Technique.
+
+Use a subarray and make sure that it always contains no duplicates.
+
+Use a set to make sure we can't ever add a duplicate item. If it tries adding an existing, we keep popping our string to 
+
+abcabcbb
+
+Ex. abca, once you get to a duplicate, reduce the subarray to bca.
+
+abca -> bca -> bcab 
+bcab -> cab -> cabc
+cabc -> abc -> abcb
+abcb -> cb -> cbb -> cb
+
+Whilst doing this, make sure to keep count of the longest string by whichever means.
